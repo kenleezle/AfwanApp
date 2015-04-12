@@ -1,16 +1,19 @@
 var respondID;
 
 $(document).ready(function() {
-
-    var requsetID = window.localStorage.getItem("questionID")
+    var requsetID = window.localStorage.getItem("questionID");
     $.ajax({
             url: 'http://ec2-54-149-21-125.us-west-2.compute.amazonaws.com/req/ans/' + requsetID,
             type: "GET",
             // data:'{"latitude": 30.0,"userID": 1,"longitude": 123.0,"payoff": 2.0,"minimumRating":2,"content": "'+question+'" }',
             success: function(data) {
+
+                /*
                 if (data.length == 0)
                     return;
-                else if (data['list'][0]) {
+                else 
+                */
+                if (data['list'] && data['list'][0]) {
                     var ans = data['list'][0];
                     console.log(ans);
                     var template = $('#hidden-template').html();
@@ -45,7 +48,9 @@ $(document).ready(function() {
                         });
                     }
                 } else {
-                     setTimeout(function() {location.href = "map-answer.html";}, 1000);
+                     setTimeout(function() {
+                         window.location.reload();
+                     }, 1000);
 
                 }
 
