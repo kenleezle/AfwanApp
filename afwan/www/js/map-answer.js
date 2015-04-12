@@ -39,6 +39,7 @@ $(document).ready(function() {
                         origin: [24.522807, 54.435447],
                         destination: [ans['longitude'], ans['latitude']],
                         travelMode: 'driving',
+                        trokeColor: '#9C59B8',
                         strokeColor: '#131540',
                         strokeOpacity: 0.6,
                         strokeWeight: 6
